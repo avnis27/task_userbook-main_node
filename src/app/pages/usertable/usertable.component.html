@@ -1,0 +1,50 @@
+<h3>User List Details</h3> 
+Back To :<a routerLink="/">Registration</a>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Email</th>
+    <th scope="col">Avatar</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let userdata of userlist; ">
+    <td>
+      {{ userdata.id }}
+    </td>
+    <td>{{ userdata.email }}</td>
+    <td><img [src]="userdata.avatar" class="mr-2" style="width: 20px">
+    </td>
+    <td><button class="btn btn-lg btn-outline-primary" (click)="open(content,userdata.id)">View Details</button></td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+<!-- model start -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+      Email : {{ userdataid.email }}<br>
+      Full Name : {{ userdataid.first_name }} {{ userdataid.last_name }}
+        
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+  </div>
+</ng-template>
+<!-- model end -->
+
+

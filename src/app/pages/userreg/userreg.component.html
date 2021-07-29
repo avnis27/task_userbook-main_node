@@ -1,0 +1,24 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <h3>User Create</h3>
+      </div>
+  
+      <!-- Login Form -->
+      <form  [formGroup]='userreg' (ngSubmit)="reguser()">
+        <input type="text" id="login" class="fadeIn second" name="login" placeholder="UserName" formControlName="UserName">
+        <span class="error" *ngIf="username!.invalid && username!.touched">*Required</span>
+        <input type="text" id="password" class="fadeIn third" name="login" placeholder="JOB" formControlName="job">
+        <span class="error" *ngIf="job!.invalid && job!.touched">*Required</span>
+        <br>
+        <div class="alert alert-info" role="alert" *ngIf="successstatus">
+         NO Empty Space Allowed..!!
+        </div>
+        <input type="submit" class="fadeIn fourth" value="Register">
+     </form>
+  
+    </div>
+  </div>
